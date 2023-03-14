@@ -29,17 +29,16 @@ fun isValid(s: String): Boolean {
     if (s.isEmpty()) return false
     if (s.length % 2 != 0) return false
 
-    val acceptChars = setOf('(', ')', '{', '}', '[', ']')
     val stack = mutableListOf<Char>()
 
     for (c in s) {
-        if (!acceptChars.contains(c)) return false
-        val index = acceptChars.indexOf(c)
-        if (index % 2 == 0) {
+        if (c == '(' || c == '[' || c == '{') {
             stack.add(c)
         } else {
             if (stack.isEmpty()) return false
-            if (stack.last() != acceptChars.elementAt(index - 1)) return false
+            if (c == ')' && stack.last() != '(')  return false
+            if (c == ']' && stack.last() != '[')  return false
+            if (c == '}' && stack.last() != '{')  return false
             stack.removeAt(stack.lastIndex)
         }
     }
