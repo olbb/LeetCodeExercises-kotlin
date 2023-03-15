@@ -7,7 +7,7 @@ import kotlin.test.Test
 class TestCase {
 
     @Test
-    fun test1() {
+    fun testCase1() {
         //示例 1：
         //输入：nums = [2,7,11,15], target = 9
         //输出：[0,1]
@@ -34,7 +34,61 @@ class TestCase {
     }
 
     @Test
-    fun test20() {
+    fun testCase2() {
+        //示例 1：
+        //输入：l1 = [2,4,3], l2 = [5,6,4]
+        //输出：[7,0,8]
+        //解释：342 + 465 = 807.
+        //示例 2：
+        //输入：l1 = [0], l2 = [0]
+        //输出：[0]
+        //示例 3：
+        //输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+        //输出：[8,9,9,9,0,0,0,1]
+
+        var l1 = ListNode(2)
+        l1.next = ListNode(4)
+        var next = l1.next
+        next?.next = ListNode(3)
+
+        var l2 = ListNode(5)
+        l2.next = ListNode(6)
+        next = l2.next
+        next?.next = ListNode(4)
+        assert(addTwoNumbers(l1, l2).toString() == "7->0->8")
+
+        l1 = ListNode(0)
+        l2 = ListNode(0)
+        assert(addTwoNumbers(l1, l2).toString() == "0")
+
+        l1 = ListNode(9)
+        l1.next = ListNode(9)
+        next = l1.next
+        next?.next = ListNode(9)
+        next = next?.next
+        next?.next = ListNode(9)
+        next = next?.next
+        next?.next = ListNode(9)
+        next = next?.next
+        next?.next = ListNode(9)
+        next = next?.next
+        next?.next = ListNode(9)
+
+        l2 = ListNode(9)
+        l2.next = ListNode(9)
+        next = l2.next
+        next?.next = ListNode(9)
+        next = next?.next
+        next?.next = ListNode(9)
+        assert(addTwoNumbers(l1, l2).toString() == "8->9->9->9->0->0->0->1")
+
+
+
+
+    }
+
+    @Test
+    fun testCase20() {
         //示例 1：
         //输入：s = "()"
         //输出：true
