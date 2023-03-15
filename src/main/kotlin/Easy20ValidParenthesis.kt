@@ -1,3 +1,5 @@
+import java.util.Stack
+
 /**
  * @author JuanLv created at 2023/3/14
  * olbbme@gmail.com
@@ -28,18 +30,16 @@ s 仅由括号 '()[]{}' 组成
 fun isValid(s: String): Boolean {
     if (s.isEmpty()) return false
     if (s.length % 2 != 0) return false
-
-    val stack = mutableListOf<Char>()
-
+    val stack = Stack<Char>()
     for (c in s) {
         if (c == '(' || c == '[' || c == '{') {
-            stack.add(c)
+            stack.push(c)
         } else {
             if (stack.isEmpty()) return false
-            if (c == ')' && stack.last() != '(')  return false
-            if (c == ']' && stack.last() != '[')  return false
-            if (c == '}' && stack.last() != '{')  return false
-            stack.removeAt(stack.lastIndex)
+            val last = stack.pop()
+            if (c == ')' && last != '(')  return false
+            if (c == ']' && last != '[')  return false
+            if (c == '}' && last != '{')  return false
         }
     }
     return stack.isEmpty()
