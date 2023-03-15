@@ -82,9 +82,31 @@ class TestCase {
         next?.next = ListNode(9)
         assert(addTwoNumbers(l1, l2).toString() == "8->9->9->9->0->0->0->1")
 
+    }
 
+    @Test
+    fun test3() {
+        //示例 1:
+        // 输入: s = "abcabcbb"
+        // 输出: 3
+        // 解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+        // 示例 2:
+        // 输入: s = "bbbbb"
+        // 输出: 1
+        // 解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
+        // 示例 3:
+        // 输入: s = "pwwkew"
+        // 输出: 3
+        // 解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
+        assert(lengthOfLongestSubstring("abcabcbb") == 3)
+        assert(lengthOfLongestSubstring("bbbbb") == 1)
+        assert(lengthOfLongestSubstring("pwwkew") == 3)
+        assert(lengthOfLongestSubstring(" ") == 1)
 
-
+        assert(lengthOfLongestSubstringNoStr("abcabcbb") == 3)
+        assert(lengthOfLongestSubstringNoStr("bbbbb") == 1)
+        assert(lengthOfLongestSubstringNoStr("pwwkew") == 3)
+        assert(lengthOfLongestSubstringNoStr(" ") == 1)
     }
 
     @Test
