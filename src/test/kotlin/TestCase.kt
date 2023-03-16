@@ -110,6 +110,22 @@ class TestCase {
     }
 
     @Test
+    fun testCase4() {
+        //示例 1：
+        //输入：nums1 = [1,3], nums2 = [2]
+        //输出：2.00000
+        //解释：合并数组 = [1,2,3] ，中位数 2
+        //示例 2：
+        //输入：nums1 = [1,2], nums2 = [3,4]
+        //输出：2.50000
+        //解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
+        assert(findMedianSortedArrays(intArrayOf(1, 3), intArrayOf(2)) == 2.0)
+        assert(findMedianSortedArrays(intArrayOf(1, 2), intArrayOf(3, 4)) == 2.5)
+        assert(findMedianSortedArrays(intArrayOf(2, 2, 4, 4), intArrayOf(2, 2, 4, 4)) == 3.0)
+
+    }
+
+    @Test
     fun testCase20() {
         //示例 1：
         //输入：s = "()"
