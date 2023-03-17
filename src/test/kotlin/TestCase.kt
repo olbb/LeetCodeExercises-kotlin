@@ -131,6 +131,30 @@ class TestCase {
     }
 
     @Test
+    fun testCase5() {
+        //示例 1：
+        //输入：s = "babad"
+        //输出："bab"
+        //解释："aba" 同样是符合题意的答案。
+        //示例 2：
+        //输入：s = "cbbd"
+        //输出："bb"
+        //示例 3：
+        //输入：s = "a"
+        //输出："a"
+        //示例 4：
+        //输入：s = "ac"
+        //输出："a"
+        assert(longestPalindrome("babad") == "bab")
+        assert(longestPalindrome("cbbd") == "bb")
+        assert(longestPalindrome("a") == "a")
+        assert(longestPalindrome("ac") == "a")
+        assert(longestPalindrome("ccc") == "ccc")
+        assert(longestPalindrome("bb") == "bb")
+        assert(longestPalindrome("aaaa") == "aaaa")
+    }
+
+    @Test
     fun testCase20() {
         //示例 1：
         //输入：s = "()"
