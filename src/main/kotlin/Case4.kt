@@ -1,3 +1,5 @@
+import java.lang.Integer.min
+
 /**
  * @author JuanLv created at 2023/3/15
  * olbbme@gmail.com
@@ -23,10 +25,41 @@ nums2.length == n
 -106 <= nums1[i], nums2[i] <= 106
  */
 fun findMedianSortedArrays(nums1: IntArray, nums2: IntArray): Double {
-
-    return 0.0
+    val size1 = nums1.size
+    val size2 = nums2.size
+    val isEven = (size1 + size2) % 2 == 0
+    val left = (size1 + size2 + 1) / 2
+    val right = (size1 + size2 + 2) / 2
+    return if (!isEven) {
+        findSubArray(nums1, 0, size1 - 1, nums2, 0, size2 - 1, left).toDouble()
+    } else {
+        (findSubArray(nums1, 0, size1 - 1, nums2, 0, size2 - 1, left) +
+                findSubArray(nums1, 0, size1 - 1, nums2, 0, size2 - 1, right)) / 2.0
+    }
 }
 
+fun findSubArray(nums1: IntArray, start1: Int, end1: Int, nums2: IntArray, start2: Int, end2: Int, cursor: Int): Int {
+    val size1 = end1 - start1 + 1
+    val size2 = end2 - start2 + 1
+    //保证size2 > size1, 这样有数组空了一定是nums1
+    if (size1 > size2) {
+        return findSubArray(nums2, start2, end2, nums1, start1, end1, cursor)
+    } else if (size1 == 0) {
+        return nums2[start2 + cursor - 1]
+    }
+    if (cursor == 1) return min(nums1[start1], nums2[start2])
+
+    val next1 = start1 + min(size1, cursor/2) - 1
+    val next2 = start2 + min(size2, cursor/2) - 1
+    val n1 = nums1[next1]
+    val n2 = nums2[next2]
+
+    return if (n1 > n2) {
+        findSubArray(nums1, start1, end1, nums2, next2 + 1, end2, cursor - (next2 - start2 + 1))
+    } else {
+        findSubArray(nums1, next1 + 1, end1, nums2, start2, end2, cursor - (next1 - start1 + 1))
+    }
+}
 
 fun findMedianSortedArrays1(nums1: IntArray, nums2: IntArray): Double {
     val size1 = nums1.size

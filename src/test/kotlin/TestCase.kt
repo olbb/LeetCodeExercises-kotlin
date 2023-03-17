@@ -123,6 +123,11 @@ class TestCase {
         assert(findMedianSortedArrays(intArrayOf(1, 2), intArrayOf(3, 4)) == 2.5)
         assert(findMedianSortedArrays(intArrayOf(2, 2, 4, 4), intArrayOf(2, 2, 4, 4)) == 3.0)
 
+        assert(findMedianSortedArrays(intArrayOf(1, 3), intArrayOf(2)) == 2.0)
+        assert(findMedianSortedArrays(intArrayOf(1, 2), intArrayOf(3, 4)) == 2.5)
+        assert(findMedianSortedArrays(intArrayOf(0, 0), intArrayOf(0, 0)) == 0.0)
+        assert(findMedianSortedArrays(intArrayOf(), intArrayOf(1)) == 1.0)
+        assert(findMedianSortedArrays(intArrayOf(2), intArrayOf()) == 2.0)
     }
 
     @Test
