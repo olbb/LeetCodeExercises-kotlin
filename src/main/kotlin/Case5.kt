@@ -23,13 +23,15 @@ fun longestPalindrome(s: String): String {
     s.forEachIndexed { index, c ->
         var left = index
         var right = index
+        var selfAlign = true
         while (left >= 0 && right < l - 1) {
             if (left > 0 && s[left-1] == s[right+1]) {
                 left--
                 right++
-            } else if (left == index && left > 0 && s[left - 1] == c) {
+                selfAlign = false
+            } else if (selfAlign && left > 0 && s[left - 1] == c) {
                 left--
-            } else if (right == index && s[right + 1] == c) {
+            } else if (selfAlign && s[right + 1] == c) {
                 right++
             } else {
                 break
