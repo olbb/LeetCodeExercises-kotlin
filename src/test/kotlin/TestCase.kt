@@ -176,6 +176,27 @@ class TestCase {
     }
 
     @Test
+    fun testCase7() {
+        //示例 1：
+        //输入：x = 123
+        //输出：321
+        //示例 2：
+        //输入：x = -123
+        //输出：-321
+        //示例 3：
+        //输入：x = 120
+        //输出：21
+        //示例 4：
+        //输入：x = 0
+        //输出：0
+        assert(reverse(123) == 321)
+        assert(reverse(-123) == -321)
+        assert(reverse(120) == 21)
+        assert(reverse(0) == 0)
+        assert(reverse(1534236469) == 0)
+    }
+
+    @Test
     fun testCase20() {
         //示例 1：
         //输入：s = "()"
