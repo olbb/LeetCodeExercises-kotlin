@@ -155,6 +155,27 @@ class TestCase {
     }
 
     @Test
+    fun  testCase6() {
+        //示例 1：
+        //输入：s = "PAYPALISHIRING", numRows = 3
+        //输出："PAHNAPLSIIGYIR"
+        //示例 2：
+        //输入：s = "PAYPALISHIRING", numRows = 4
+        //输出："PINALSIGYAHRPI"
+        //解释：
+        //P     I    N
+        //A   L S  I G
+        //Y A   H R
+        //P     I
+        //示例 3：
+        //输入：s = "A", numRows = 1
+        //输出："A"
+        assert(convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR")
+        assert(convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI")
+        assert(convert("A", 1) == "A")
+    }
+
+    @Test
     fun testCase20() {
         //示例 1：
         //输入：s = "()"
