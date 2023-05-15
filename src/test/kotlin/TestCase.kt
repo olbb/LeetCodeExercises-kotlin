@@ -324,6 +324,37 @@ class TestCase {
     }
 
     @Test
+    fun testCase13() {
+        //示例 1:
+        //
+        //输入: s = "III"
+        //输出: 3
+        //示例 2:
+        //
+        //输入: s = "IV"
+        //输出: 4
+        //示例 3:
+        //
+        //输入: s = "IX"
+        //输出: 9
+        //示例 4:
+        //
+        //输入: s = "LVIII"
+        //输出: 58
+        //解释: L = 50, V= 5, III = 3.
+        //示例 5:
+        //
+        //输入: s = "MCMXCIV"
+        //输出: 1994
+        //解释: M = 1000, CM = 900, XC = 90, IV = 4.
+        assert(romanToInt("III") == 3)
+        assert(romanToInt("IV") == 4)
+        assert(romanToInt("IX") == 9)
+        assert(romanToInt("LVIII") == 58)
+        assert(romanToInt("MCMXCIV") == 1994)
+    }
+
+    @Test
     fun testCase20() {
         //示例 1：
         //输入：s = "()"
