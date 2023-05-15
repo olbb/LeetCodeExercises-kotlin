@@ -277,6 +277,20 @@ class TestCase {
         assert(isMatch("ab", ".*"))
     }
 
+
+    @Test
+    fun testCase11() {
+        //示例 1：
+        //输入：[1,8,6,2,5,4,8,3,7]
+        //输出：49
+        //示例 2：
+        //输入：height = [1,1]
+        //输出：1
+        assert(maxArea(intArrayOf(1,8,6,2,5,4,8,3,7)) == 49)
+        assert(maxArea(intArrayOf(1,1)) == 1)
+
+    }
+
     @Test
     fun testCase20() {
         //示例 1：
